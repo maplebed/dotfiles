@@ -1,0 +1,17 @@
+
+#change the hardstatus settings to give an window list at the bottom of the 
+#screen, with the time and date and with the current window highlighted
+hardstatus alwayslastline 
+#hardstatus string '%{= wK}%-Lw%u(%u)%{= KG}%50>%n%f* %t%{= wK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+bindkey -d -k kD
+
+hardstatus string '%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?'
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b C}[ %m/%d %c:%s ]%{W}'
+#hardstatus alwayslastline "%{10 70}%{=b by} %c %{-}%{= .w}[%{=b .w}%n%{-}%{= .w}]%{=b .b}%t%{-} %{=b .b}[ %{= .b}%w %{=b .b}]%{-} %{=b .b}%= %1` | %2` %{-}"
+
+# set the scrollback to 5000 lines
+defscrollback 5000
+
+# set the escape char to `
+escape `~
+
