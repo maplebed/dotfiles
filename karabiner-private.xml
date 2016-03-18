@@ -13,51 +13,11 @@
     <item>
         <name>Tmux Controls</name>
         <item>
-            <name>Fn to Tmux Trigger</name>
-            <identifier>private.fn_to_tmux</identifier>
-            <autogen>__KeyToKey__
-                KeyCode::PC_APPLICATION,
-                KeyCode::P, ModifierFlag::CONTROL_L
-            </autogen>
-        </item>
-        <item>
             <name>nh to Tmux Trigger</name>
             <identifier>priavte.nh_to_tmux</identifier>
             <autogen>__SimultaneousKeyPresses__
                 KeyCode::J, KeyCode::L,
-                KeyCode::P, ModifierFlag::CONTROL_L
-            </autogen>
-        </item>
-        <item>
-            <name>F1 to Tmux Window 0</name>
-            <identifier>private.f1_to_tmux_w0</identifier>
-            <autogen>__KeyToKey__
-                KeyCode::F1,
-                KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::0
-            </autogen>
-        </item>
-        <item>
-            <name>F2 to Tmux Prev Window</name>
-            <identifier>private.f2_to_tmux_wp</identifier>
-            <autogen>__KeyToKey__
-                KeyCode::F2,
-                KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::P
-            </autogen>
-        </item>
-        <item>
-            <name>F3 to Tmux Next Window</name>
-            <identifier>private.f3_to_tmux_wn</identifier>
-            <autogen>__KeyToKey__
-                KeyCode::F3,
-                KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::N
-            </autogen>
-        </item>
-        <item>
-            <name>F4 to Tmux Zoom</name>
-            <identifier>private.f4_to_tmux_z</identifier>
-            <autogen>__KeyToKey__
-                KeyCode::F4,
-                KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::Z
+                KeyCode::N, ModifierFlag::CONTROL_L
             </autogen>
         </item>
     </item> <!-- closes tmux controls -->
@@ -80,40 +40,122 @@
             <identifier>private.pointing_mousebutton4_to_next_tab</identifier>
             <autogen>__KeyToKey__
                 PointingButton::BUTTON4,
-                KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+                KeyCode::EQUAL, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
         </item>
         <item>
             <name>MouseButton5 to Previous Tab (command-shift-[)</name>
             <identifier>private.pointing_mousebutton5_to_prev_tab</identifier>
             <autogen>__KeyToKey__
                 PointingButton::BUTTON5,
-                KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
+                KeyCode::MINUS, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
         </item>
         <item>
             <name>scroll left to back</name>
             <identifier>private.scroll_left_to_back</identifier>
+            <only>FIREFOX, GOOGLE_CHROME, SAFARI, Slack</only>
             <autogen>__ScrollWheelToKey__
                 ScrollWheel::LEFT,
-                KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L
+                KeyCode::MINUS, ModifierFlag::COMMAND_L
             </autogen>
         </item>
         <item>
             <name>scroll right to forward</name>
             <identifier>private.scroll_right_to_forward</identifier>
+            <only>FIREFOX, GOOGLE_CHROME, SAFARI, Slack</only>
             <autogen>__ScrollWheelToKey__
                 ScrollWheel::RIGHT,
-                KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L
+                KeyCode::EQUAL, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
+        </item>
+    <modifierdef>BUTTON6</modifierdef>
+    <item>
+        <name>Button6 Mods</name>
+        <appendix>Hold button 6 (thumb button) and:</appendix>
+        <appendix>* scroll wheel is horizontal</appendix>
+        <appendix>* left click is close (cmd-w)</appendix>
+        <appendix>* right click is re-open closed tab (cmd-shift-t)</appendix>
+        <identifier>private.button6_rotate_scroll_wheel</identifier>
+
+        <autogen>__KeyToKey__ PointingButton::BUTTON6, KeyCode::VK_MODIFIER_BUTTON6</autogen>
+
+        <block>
+            <modifier_only>ModifierFlag::BUTTON6</modifier_only>
+            <autogen>
+            __FlipScrollWheel__
+            Option::FLIPSCROLLWHEEL_ROTATE,
+            </autogen>
+            <autogen>
+            __KeyToKey__ PointingButton::LEFT,
+            KeyCode::COMMA, ModifierFlag::COMMAND_L,
+            </autogen>
+            <autogen>
+            __KeyToKey__ PointingButton::RIGHT,
+            KeyCode::K, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+            </autogen>
+        </block>
+    </item>
+
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_HOUND_APPLESCRIPT</name>
+        <url>file:////Users/ben/Desktop/HoundHours.app </url>
+    </vkopenurldef>
+    <item>
+        <name>F10 to Hound Hours</name>
+        <appendix>Launch Hound hour tracker in default browser</appendix>
+        <identifier>private.f10_to_hound_hours</identifier>
+        <autogen>__KeyToKey__
+            KeyCode::F10,
+            KeyCode::VK_OPEN_URL_HOUND_APPLESCRIPT
+        </autogen>
+    </item>
+    <item><name>────────── TESTING ───────────</name></item>
+
+    <item><name>────────── UNUSED -───────────</name></item>
+    <item><name>Unused</name>
+
+        <item>
+            <name>Fn to Tmux Trigger</name>
+            <identifier>private.fn_to_tmux</identifier>
+            <autogen>__KeyToKey__
+                KeyCode::PC_APPLICATION,
+                KeyCode::N, ModifierFlag::CONTROL_L
+            </autogen>
+        </item>
+
+        <item>
+            <name>F1 to Tmux Window 0</name>
+            <identifier>private.f1_to_tmux_w0</identifier>
+            <autogen>__KeyToKey__
+                KeyCode::F1,
+                KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::0
             </autogen>
         </item>
         <item>
-            <name>(Simultaneous) Button6+LeftClick to Close</name>
-            <identifier>private.pointing_6left_to_close</identifier>
-            <autogen>__SimultaneousKeyPresses__
-                PointingButton::BUTTON6, PointingButton::LEFT,
-                KeyCode::W, ModifierFlag::COMMAND_L
+            <name>F2 to Tmux Prev Window</name>
+            <identifier>private.f2_to_tmux_wp</identifier>
+            <autogen>__KeyToKey__
+                KeyCode::F2,
+                KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::P
             </autogen>
         </item>
-    </item>
+        <item>
+            <name>F3 to Tmux Next Window</name>
+            <identifier>private.f3_to_tmux_wn</identifier>
+            <autogen>__KeyToKey__
+                KeyCode::F3,
+                KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::N
+            </autogen>
+        </item>
+        <item>
+            <name>F4 to Tmux Zoom</name>
+            <identifier>private.f4_to_tmux_z</identifier>
+            <autogen>__KeyToKey__
+                KeyCode::F4,
+                KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::Z
+            </autogen>
+        </item>
+
     <!-- Keyboard Layout Switching with F-keys -->
     <item>
         <name>Profile Switching</name>
@@ -157,34 +199,8 @@
             </autogen>
         </item>
     </item> <!-- ends keyboard layout switching section -->
-    <modifierdef>BUTTON6</modifierdef>
-    <item>
-        <name>Button6 Mods</name>
-        <appendix>Hold button 6 (thumb button) and:</appendix>
-        <appendix>* scroll wheel is horizontal</appendix>
-        <appendix>* left click is close (cmd-w)</appendix>
-        <appendix>* right click is re-open closed tab (cmd-shift-t)</appendix>
-        <identifier>private.button6_rotate_scroll_wheel</identifier>
 
-        <autogen>__KeyToKey__ PointingButton::BUTTON6, KeyCode::VK_MODIFIER_BUTTON6</autogen>
-
-        <block>
-            <modifier_only>ModifierFlag::BUTTON6</modifier_only>
-            <autogen>
-            __FlipScrollWheel__
-            Option::FLIPSCROLLWHEEL_ROTATE,
-            </autogen>
-            <autogen>
-            __KeyToKey__ PointingButton::LEFT,
-            KeyCode::W, ModifierFlag::COMMAND_L,
-            </autogen>
-            <autogen>
-            __KeyToKey__ PointingButton::RIGHT,
-            KeyCode::T, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
-            </autogen>
-        </block>
     </item>
-    <!-- <item><name>────────── TESTING ───────────</name></item> -->
     <item><name>──────────────────────────────</name></item>
 
 </root>
