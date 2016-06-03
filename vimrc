@@ -18,6 +18,8 @@ set nu
 
 " turn on search highlighting
 set hlsearch
+" change the colors for search so the text is easier to read
+hi Search cterm=NONE ctermfg=black ctermbg=yellow
 " turn on incremental search highlighting
 set incsearch
 "This unsets the "last search pattern" register by hitting return

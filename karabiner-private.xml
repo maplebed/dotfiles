@@ -15,9 +15,22 @@
         <item>
             <name>nh to Tmux Trigger</name>
             <identifier>priavte.nh_to_tmux</identifier>
+            <only>TERMINAL</only>
             <autogen>__SimultaneousKeyPresses__
                 KeyCode::J, KeyCode::L,
                 KeyCode::N, ModifierFlag::CONTROL_L
+            </autogen>
+        </item>
+    </item> <!-- closes tmux controls -->
+    <item>
+        <name>Sublime Controls</name>
+        <item>
+            <name>h- to { for easier typing</name>
+            <identifier>priavte.hdash_to_brace</identifier>
+            <only>SUBLIMETEXT</only>
+            <autogen>__SimultaneousKeyPresses__
+                KeyCode::J, KeyCode::QUOTE,
+                KeyCode::MINUS, ModifierFlag::SHIFT_L
             </autogen>
         </item>
     </item> <!-- closes tmux controls -->
@@ -33,11 +46,17 @@
  -->        </autogen>
     </item>
     <!-- Firefox -->
+  <deviceproductdef>
+    <productname>APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0273</productname>
+    <productid>0x0273</productid>
+  </deviceproductdef>
+
     <item>
         <name>Web Browser</name>
         <item>
             <name>MouseButton4 to Next Tab (command-shift-[)</name>
             <identifier>private.pointing_mousebutton4_to_next_tab</identifier>
+            <device_not>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0273</device_not>
             <autogen>__KeyToKey__
                 PointingButton::BUTTON4,
                 KeyCode::EQUAL, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
@@ -45,6 +64,7 @@
         <item>
             <name>MouseButton5 to Previous Tab (command-shift-[)</name>
             <identifier>private.pointing_mousebutton5_to_prev_tab</identifier>
+            <device_not>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0273</device_not>
             <autogen>__KeyToKey__
                 PointingButton::BUTTON5,
                 KeyCode::MINUS, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L</autogen>
@@ -53,6 +73,7 @@
             <name>scroll left to back</name>
             <identifier>private.scroll_left_to_back</identifier>
             <only>FIREFOX, GOOGLE_CHROME, SAFARI, Slack</only>
+            <device_not>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0273</device_not>
             <autogen>__ScrollWheelToKey__
                 ScrollWheel::LEFT,
                 KeyCode::MINUS, ModifierFlag::COMMAND_L
@@ -62,6 +83,7 @@
             <name>scroll right to forward</name>
             <identifier>private.scroll_right_to_forward</identifier>
             <only>FIREFOX, GOOGLE_CHROME, SAFARI, Slack</only>
+            <device_not>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0273</device_not>
             <autogen>__ScrollWheelToKey__
                 ScrollWheel::RIGHT,
                 KeyCode::EQUAL, ModifierFlag::COMMAND_L
