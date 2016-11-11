@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root>
-    <item><name>────────  From private.xml -------------</name></item>
+   <item><name>────────  From private.xml -------------</name></item>
     <item>
         <name>Help to Skitch</name>
         <identifier>private.help_to_skitch</identifier>
@@ -33,7 +33,7 @@
                 KeyCode::MINUS, ModifierFlag::SHIFT_L
             </autogen>
         </item>
-    </item> <!-- closes tmux controls -->
+    </item> <!-- closes Sublime controls -->
     <!-- Screensaver triggers a shortcut configured in System settings that
     launches an applescript Service-->
     <item>
@@ -117,6 +117,23 @@
             </autogen>
         </block>
     </item>
+    <item>
+      <name>Shift Left Click to Close </name>
+      <identifier>private.shift_left_click_to_close</identifier>
+      <not>SUBLIMETEXT</not>
+      <autogen>__KeyToKey__
+        PointingButton::LEFT, ModifierFlag::SHIFT_L,
+        KeyCode::COMMA, ModifierFlag::COMMAND_L,
+      </autogen>
+  </item>
+    <item>
+      <name>Shift Right Click to Un-Close Tab </name>
+      <identifier>private.shift_right_click_to_unclose</identifier>
+      <autogen>__KeyToKey__
+        PointingButton::RIGHT, ModifierFlag::SHIFT_L,
+        KeyCode::K, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      </autogen>
+  </item>
 
     <vkopenurldef>
         <name>KeyCode::VK_OPEN_URL_HOUND_APPLESCRIPT</name>
@@ -131,6 +148,46 @@
             KeyCode::VK_OPEN_URL_HOUND_APPLESCRIPT
         </autogen>
     </item>
+  <modifierdef>MY_HYPER</modifierdef>
+        <item>
+            <name>esc to hyper key, esc</name>
+            <appendix>tap esc and it sends escape. hold it down for hyper.</appendix>
+            <identifier>private.escape_to_hyper_plus_escape</identifier>
+            <autogen>
+              __HoldingKeyToKey__
+              KeyCode::ESCAPE,
+              @begin
+              KeyCode::ESCAPE,
+              @end
+              @begin
+              KeyCode::VK_MODIFIER_MY_HYPER
+              @end
+            </autogen>
+        </item>
+        <item>
+            <name>Hyper + right hand to Numbers</name>
+            <appendix>Hyper with gcr,htn,mwv to 789,456,123</appendix>
+            <identifier>private.hyper_number_pad</identifier>
+            <block>
+                <!-- <modifier_only>ModifierFlag::MY_HYPER</modifier_only> -->
+                <autogen> __KeyToKey__ KeyCode::M, ModifierFlag::MY_HYPER, KeyCode::KEY_1</autogen>
+                <autogen> __KeyToKey__ KeyCode::COMMA, ModifierFlag::MY_HYPER, KeyCode::KEY_2</autogen>
+                <autogen> __KeyToKey__ KeyCode::DOT, ModifierFlag::MY_HYPER, KeyCode::KEY_3</autogen>
+                <autogen> __KeyToKey__ KeyCode::J, ModifierFlag::MY_HYPER, KeyCode::KEY_4</autogen>
+                <autogen> __KeyToKey__ KeyCode::K, ModifierFlag::MY_HYPER, KeyCode::KEY_5</autogen>
+                <autogen> __KeyToKey__ KeyCode::L, ModifierFlag::MY_HYPER, KeyCode::KEY_6</autogen>
+                <autogen> __KeyToKey__ KeyCode::U, ModifierFlag::MY_HYPER, KeyCode::KEY_7</autogen>
+                <autogen> __KeyToKey__ KeyCode::I, ModifierFlag::MY_HYPER, KeyCode::KEY_8</autogen>
+                <autogen> __KeyToKey__ KeyCode::O, ModifierFlag::MY_HYPER, KeyCode::KEY_9</autogen>
+                <autogen> __KeyToKey__ KeyCode::SPACE, ModifierFlag::MY_HYPER, KeyCode::KEY_0</autogen>
+            </block>
+        </item>
+    <item>
+        <name>Hyper Key Settings</name>
+    </item>
+
+
+
     <item><name>────────── TESTING ───────────</name></item>
 
     <item><name>────────── UNUSED -───────────</name></item>
