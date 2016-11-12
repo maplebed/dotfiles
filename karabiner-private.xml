@@ -149,6 +149,8 @@
         </autogen>
     </item>
   <modifierdef>MY_HYPER</modifierdef>
+    <item>
+        <name>Hyper Key Settings</name>
         <item>
             <name>esc to hyper key, esc</name>
             <appendix>tap esc and it sends escape. hold it down for hyper.</appendix>
@@ -182,8 +184,6 @@
                 <autogen> __KeyToKey__ KeyCode::SPACE, ModifierFlag::MY_HYPER, KeyCode::KEY_0</autogen>
             </block>
         </item>
-    <item>
-        <name>Hyper Key Settings</name>
     </item>
 
 
