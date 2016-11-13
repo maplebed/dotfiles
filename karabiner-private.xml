@@ -118,19 +118,19 @@
         </block>
     </item>
     <item>
-      <name>Shift Left Click to Close </name>
-      <identifier>private.shift_left_click_to_close</identifier>
+      <name>Hyper + Left Click to Close </name>
+      <identifier>private.hyper_left_click_to_close</identifier>
       <not>SUBLIMETEXT</not>
       <autogen>__KeyToKey__
-        PointingButton::LEFT, ModifierFlag::SHIFT_L,
+        PointingButton::LEFT, ModifierFlag::MY_HYPER,
         KeyCode::COMMA, ModifierFlag::COMMAND_L,
       </autogen>
   </item>
     <item>
-      <name>Shift Right Click to Un-Close Tab </name>
-      <identifier>private.shift_right_click_to_unclose</identifier>
+      <name>Hyper + Right Click to Un-Close Tab </name>
+      <identifier>private.hyper_right_click_to_unclose</identifier>
       <autogen>__KeyToKey__
-        PointingButton::RIGHT, ModifierFlag::SHIFT_L,
+        PointingButton::RIGHT, ModifierFlag::MY_HYPER,
         KeyCode::K, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       </autogen>
   </item>
